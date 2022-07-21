@@ -1,0 +1,55 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    
+    <div class="col-lg-8 my-3"> <!--Aqui vem os conteúdos-->
+      <h1 class="text-center">Contato</h1>
+      <p class="text-center lead">Crie ou edite seu contato abaixo.</p>
+
+      <%- include('includes/messages') %>
+      
+      <!--Na tela de cadastro contato, terá dois caminho, um quando for redirecionado após um cadastro e outro para cadastrar do zero-->
+      <% if(contatoBanco._id) { %>
+        <form class="form-contatoEd" action="/contato/edit/<%= contatoBanco._id %>" method="POST"> <!--(Caso encontre o contato._id) Rota para receber os dados do contato ja cadastrado e redirecionar para rota de edição com os novos dados cadastrados-->
+      <% } else { %>
+        <form class="form-contatoRg" action="/contato/register" method="POST"> <!--Neste caso é direcionado quando atribuimos o contato fake {contato} sem valor, e assim pode registrar novo contato do zero e sem erro na página -->
+      <% } %>
+      
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <!--Config de cadastro-->
+        <div class="form-group"> 
+          <label>Nome</label>
+          <input value="<%= contatoBanco.nome %>" type="text" class="form-control nomeContato form-contato" name="nome">
+        </div>
+
+        <div class="form-group"> 
+          <label>Sobrenome</label>
+          <input value="<%= contatoBanco.sobrenome %>" type="text" class="form-control sobrenomeContato form-contato" name="sobrenome">
+        </div>
+
+        <div class="form-group"> 
+          <label>Seu email</label>
+          <input value="<%= contatoBanco.email %>" type="email" class="form-control emailContato form-contato" name="email">
+        </div>
+
+        <div class="form-group"> 
+          <label>Telefone</label>
+          <input value="<%= contatoBanco.telefone %>" type="tel" class="form-control telefoneContato form-contato " name="telefone">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </form>
+
+    </div>
+  
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
+
+   
