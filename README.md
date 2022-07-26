@@ -5,4 +5,4 @@ Foi feito o deploy da aplicação através do Google Clound Platform
 
 O funcionamento da aplicação pode ser acessado através do indereço de IP: http://35.247.197.95/
 
-Para o funcionamento do projeto após o download dos aquivos se faz necessário vincular um login válido no mongoDB para armazenamento de seus dados cadastrais. Para isso, criar um arquivo .env na raiz do projeto, inserir CONNECTIONSTRING= login válido do mongoDB (usuário e senha ja inclusos no link de acesso).
+Para o funcionamento do projeto após o download dos aquivos se faz necessário instalar os monulos do node (node_modules) e vincular um login válido no mongoDB para armazenamento de seus dados cadastrais. Para isso, criar um arquivo .env na raiz do projeto, inserir CONNECTIONSTRING= login válido do mongoDB (usuário e senha ja inclusos no link de acesso).
